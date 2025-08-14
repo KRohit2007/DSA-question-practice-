@@ -1,0 +1,46 @@
+Q1. Complete the function printNumber which takes an integer input from the user and prints it on the screen.
+
+
+In C++ Language
+
+#include <iostream>
+using namespace std;
+
+void printNumber() {
+    int num;
+    cin >> num;
+    cout << num;
+}
+
+int main() {
+    printNumber();
+    return 0;
+}
+
+
+
+In python language -
+
+
+def printNumber():
+    num = int(input())
+    print(num)
+
+printNumber()
+
+
+
+Q2.Given an integer age, print on the screen:
+
+Adult if age >= 18
+Teen if age < 18
+Do not change the case of any letter in "Adult" and "Teen" while printing the answer.
+
+In C++ language
+
+
+
+
+
+
+
