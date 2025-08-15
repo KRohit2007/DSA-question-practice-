@@ -5,13 +5,11 @@ In C++ Language
 
 #include <iostream>
 using namespace std;
-
 void printNumber() {
     int num;
     cin >> num;
     cout << num;
 }
-
 int main() {
     printNumber();
     return 0;
@@ -25,7 +23,6 @@ In python language -
 def printNumber():
     num = int(input())
     print(num)
-
 printNumber()
 
 
@@ -171,7 +168,6 @@ print()
 c++ ----
 #include <iostream>
 using namespace std;
-
 int main() {
     int X, N;
     cin >> X >> N;
@@ -191,7 +187,6 @@ c++ -----
 #include <iostream>
 #include <string>
 using namespace std;
-
 int main() {
     string s;
     cin >> s;
@@ -199,7 +194,191 @@ int main() {
 }
 
 
-Q8. 
+Q8. Given an array of integers nums, 
+sort the array in non-decreasing order using the selection sort algorithm and return the sorted array.
+A sorted array in non-decreasing order is an array where 
+each element is greater than or equal to all previous elements in the array.
+
+c++ -----
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int a[100];
+    for (int i = 0; i < n; i++) cin >> a[i];
+    for (int i = 0; i < n - 1; i++) {
+        int m = i;
+        for (int j = i + 1; j < n; j++)
+            if (a[j] < a[m]) m = j;
+        swap(a[i], a[m]);
+    }
+    for (int i = 0; i < n; i++) cout << a[i] << " ";
+}
+
+python----
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+for i in range(n):
+    m = i
+    for j in range(i+1, n):
+        if a[j] < a[m]:
+            m = j
+    a[i], a[m] = a[m], a[i]
+for x in a:
+    print(x, end=" ")
+
+
+Q9. Given an integer n, write a function to print all numbers from 1 to n (inclusive) using recursion.
+You must not use any loops such as for, while, or do-while.
+The function should print each number on a separate line, in increasing order from 1 to n
+
+python----
+
+def print_numbers(n):
+    if n == 0:
+        return
+    print_numbers(n - 1)
+    print(n)
+n = int(input())
+print_numbers(n)
+
+c++ -----
+
+#include <iostream>
+using namespace std;
+void print_numbers(int n) {
+    if (n == 0) return;
+    print_numbers(n - 1);
+    cout << n << endl;
+}
+int main() {
+    int n;
+    cin >> n;
+    print_numbers(n);
+}
+
+Q 10. Given an integer N, return the sum of first N natural numbers. Try to solve this using recursion.
+
+python-----
+def sum_natural(n):
+    if n == 0:
+        return 0
+    return n + sum_natural(n - 1)
+N = int(input())
+print(sum_natural(N))
+
+
+c++-----
+#include <iostream>
+using namespace std;
+int sum_natural(int n) {
+    if (n == 0) return 0;
+    return n + sum_natural(n - 1);
+}
+int main() {
+    int N;
+    cin >> N;
+    cout << sum_natural(N);
+}
+
+Q11. Given an array arr of n elements. The task is to reverse the given array. 
+The reversal of array should be inplace.
+
+c++ -----
+#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cin >> n;
+    int arr[100];
+    for (int i = 0; i < n; i++) cin >> arr[i];
+    for (int i = 0; i < n / 2; i++) {
+        int temp = arr[i];
+        arr[i] = arr[n - i - 1];
+        arr[n - i - 1] = temp;
+    }
+    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+}
+
+Q12. The Fibonacci numbers, commonly denoted F(n) form a sequence, called the Fibonacci sequence,
+such that each number is the sum of the two preceding ones, starting from 0 and 1. T
+
+python -----
+def fib(n):
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fib(n - 1) + fib(n - 2)
+
+n = int(input())
+print(fib(n))
+
+c++ ------
+#include <iostream>
+using namespace std;
+int fib(int n) {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    return fib(n - 1) + fib(n - 2);
+}
+int main() {
+    int n;
+    cin >> n;
+    cout << fib(n);
+}
+
+
+Q13. You are given an integer n. You need to return the number of digits in the number.
+The number will have no leading zeroes, except when the number is 0 itself.
+
+python-----
+n = int(input())
+count = 0
+if n == 0:
+    count = 1
+else:
+    if n < 0:
+        n = -n
+    while n > 0:
+        count += 1
+        n //= 10
+print(count)
+
+
+Q14. You are given an integer n. Return the integer formed by placing the digits of n in reverse order.
+
+python-----
+n = int(input())
+rev = 0
+neg = n < 0
+if neg:
+    n = -n
+while n > 0:
+    rev = rev * 10 + n % 10
+    n //= 10
+if neg:
+    rev = -rev
+print(rev)
+
+Q15. You are given an integer n. You need to check whether the number is a palindrome number or not. 
+Return true if it's a palindrome number, otherwise return false.
+
+python-----
+n = int(input())
+s = str(n)
+if s == s[::-1]:
+    print(True)
+else:
+    print(False)
+
+
+
+
+
 
 
 
